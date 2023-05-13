@@ -12,15 +12,53 @@ class CardVeListtileKullanimi extends StatelessWidget {
         title: Text('Card ve ListTile '),
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
-            tekListeElemani(),
-            tekListeElemani(),
-            tekListeElemani(),
-            tekListeElemani(),
-            tekListeElemani(),
+            Column(
+              children: [
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+                tekListeElemani(),
+              ],
+            ),
+            Text('Selam'),
+            OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  'Buton',
+                ))
           ],
         ),
+      ),
+    );
+  }
+
+  SingleChildScrollView singleChildKullanimi() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+          tekListeElemani(),
+        ],
       ),
     );
   }
