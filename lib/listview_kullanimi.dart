@@ -26,7 +26,7 @@ class ListViewKullanimi extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         var nowOgrenci = tumOgrenciler[index];
         return Card(
-          color: index % 2 == 0 ? Colors.orange.shade100 : Colors.purple.shade100,
+          color: index % 2 == 0 ? Colors.green.shade100 : Colors.purple.shade100,
           child: ListTile(
             onTap: () {
               print('Eleman tıklandı: ${index}');
