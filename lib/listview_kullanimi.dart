@@ -27,21 +27,26 @@ class ListViewKullanimi extends StatelessWidget {
   ListView buildListViewSeperated() {
     return ListView.separated(
       itemBuilder: (BuildContext context, int index) {
-        var nowOgrenci = tumOgrenciler[index];
+        var oAnkiOgrenci = tumOgrenciler[index];
         return Card(
           color: index % 2 == 0 ? Colors.green.shade200 : Colors.purple.shade200,
           child: ListTile(
             onTap: () {
               if (index % 2 == 0) {
-                EasyLoading.instance.backgroundColor = Colors.amber;
+                EasyLoading.instance.backgroundColor = Colors.amber.shade200;
+                EasyLoading.instance.textColor = Colors.white;
               } else {
-                EasyLoading.instance.backgroundColor = Colors.teal;
+                EasyLoading.instance.backgroundColor = Colors.teal.shade200;
+                EasyLoading.instance.textColor = Colors.white;
               }
               EasyLoading.showToast('Tıklandı!',
                   toastPosition: EasyLoadingToastPosition.bottom);
             },
-            title: Text(nowOgrenci.isim),
-            subtitle: Text(nowOgrenci.soyisim),
+            onLongPress: () {
+              _alertDialogIslemleri(context, oAnkiOgrenci);
+            },
+            title: Text(oAnkiOgrenci.isim),
+            subtitle: Text(oAnkiOgrenci.soyisim),
             leading: CircleAvatar(
                 child: Icon(
               Icons.person_2_rounded,
@@ -77,6 +82,40 @@ class ListViewKullanimi extends StatelessWidget {
           .toList(),
     );
   }
+
+  void _alertDialogIslemleri(BuildContext myContext, Ogrenci secilen) {
+    showDialog(
+        context: myContext,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(secilen.toString()),
+            content: SingleChildScrollView(
+                child: ListBody(
+              children: [
+                Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+              ],
+            )),
+            actions: [
+              ButtonBar(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      //O andaki açık olan ekrandan bir adım geriye getirir
+                    },
+                    child: Text('KAPAT'),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('TAMAM'),
+                  )
+                ],
+              )
+            ],
+          );
+        });
+  }
 }
 
 class Ogrenci {
@@ -85,4 +124,10 @@ class Ogrenci {
   final String soyisim;
 
   Ogrenci(this.id, this.isim, this.soyisim);
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return 'Isim: $isim - Soyisim: $soyisim - id: $id';
+  }
 }
