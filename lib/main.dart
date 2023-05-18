@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_scrolls_app/card_listtile.dart';
 import 'package:flutter_scrolls_app/listview_kullanimi.dart';
+import 'package:flutter_scrolls_app/listview_layout_problemleri.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,7 @@ void main() {
 
 void configLoading() {
   EasyLoading.instance
-    ..displayDuration = const Duration(milliseconds: 1000)
+    ..displayDuration = const Duration(milliseconds: 500)
     ..indicatorType = EasyLoadingIndicatorType.fadingCircle
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListViewKullanimi(),
+      home: ListviewLayoutProblemleri(),
       builder: EasyLoading.init(),
     );
   }
