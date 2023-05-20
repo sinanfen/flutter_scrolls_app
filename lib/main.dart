@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_scrolls_app/card_listtile.dart';
+import 'package:flutter_scrolls_app/grid_view_kullanimi.dart';
 import 'package:flutter_scrolls_app/listview_kullanimi.dart';
 import 'package:flutter_scrolls_app/listview_layout_problemleri.dart';
 
@@ -16,9 +17,9 @@ void configLoading() {
     ..loadingStyle = EasyLoadingStyle.custom
     ..indicatorSize = 45.0
     ..radius = 10.0
-    ..progressColor = Colors.yellow.shade100
+    ..progressColor = Colors.red.shade100
     ..backgroundColor = Colors.green.shade100
-    ..indicatorColor = Colors.yellow.shade100
+    ..indicatorColor = Colors.blue.shade100
     ..textColor = Colors.yellow.shade100
     ..maskColor = Colors.blue.withOpacity(0.5)
     ..userInteractions = true
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListviewLayoutProblemleri(),
+      home: GridViewOrnek(),
       builder: EasyLoading.init(),
     );
   }
