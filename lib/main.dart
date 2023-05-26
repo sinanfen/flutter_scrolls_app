@@ -19,7 +19,7 @@ void configLoading() {
     ..radius = 10.0
     ..progressColor = Colors.red
     ..backgroundColor = Colors.green
-    ..indicatorColor = Colors.blue
+    ..indicatorColor = Colors.pink 
     ..textColor = Colors.yellow.shade100
     ..maskColor = Colors.blue.withOpacity(0.5)
     ..userInteractions = true
